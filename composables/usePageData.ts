@@ -10,6 +10,6 @@ export const getPageContent = (content, route) => {
 };
 
 export const getPageDate = (content, name) => {
-  const data = content.value?.pages?.filter((p) => p.name == name);
+  const data = content.value?.user?.filter((p) => p.name == name);
   if (data.length) return data[0];
 };

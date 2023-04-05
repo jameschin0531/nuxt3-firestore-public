@@ -9,7 +9,7 @@
           <span class="icon is-small"
             ><i class="fas fa-list" aria-hidden="true"></i
           ></span>
-          <span>Page List</span>
+          <span>User List</span>
         </a>
       </li>
       <li :class="{ 'is-active': isActive === 'add' }" @click="handleChange('add')">
@@ -17,7 +17,7 @@
           <span class="icon is-small"
             ><i class="fas fa-file" aria-hidden="true"></i
           ></span>
-          <span>Add New Page</span>
+          <span>Add New User</span>
         </a>
       </li>
     </ul>

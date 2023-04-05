@@ -1,6 +1,6 @@
 export default defineNuxtPlugin(async (nuxtApp) => {
   try {
-    await getFirestoreData("pages");
+    await getFirestoreData("user");
   } catch (error) {
     console.log(error.message);
   }

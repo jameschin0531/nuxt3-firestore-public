@@ -30,9 +30,9 @@ const pageContent = computed(() => {
 });
 
 const handleSubmit = async (formState) => {
-  const result = await addFirestoreData("pages", formState);
+  const result = await addFirestoreData("user", formState);
   document.getElementById("form").reset();
-  await getFirestoreData("pages");
+  await getFirestoreData("user");
 };
 
 const handleDelete = (page) => {
@@ -42,8 +42,8 @@ const handleDelete = (page) => {
 
 const handleConfirm = async () => {
   showModal.value = false;
-  await deleteFirestoreData("pages", selectedPage.value.id);
-  await getFirestoreData("pages");
+  await deleteFirestoreData("user", selectedPage.value.id);
+  await getFirestoreData("user");
 };
 
 const handleChangeTab = async (tab) => {

@@ -2,7 +2,7 @@
   <div>
     <div class="section py-4">
       <div class="box p-5">
-        <h2 class="subtitle is-3">Pages</h2>
+        <h2 class="subtitle is-3">Users</h2>
         <template v-for="page in pages" :key="page.id">
           <PageDetail :page="page" @delete="handleDelete" />
         </template>
