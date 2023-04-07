@@ -1,15 +1,11 @@
 import {
   collection,
   getDocs,
-  getDoc,
   addDoc,
   deleteDoc,
   doc,
-  query,
-  where,
   setDoc,
-  collectionGroup,
-  Timestamp,
+  updateDoc
 } from "firebase/firestore";
 import { firestoreDb } from "./firebase";
 
@@ -45,4 +41,11 @@ export const add = async (col: string, document: Object) => {
 export const del = async (col, id) => {
   const docRef = doc(firestoreDb, col, id);
   return await deleteDoc(docRef);
+};
+
+export const update = async (col: string, docId: string, updates: Object) => {
+  const docRef = doc(firestoreDb, col, docId);
+  console.log('docref',docRef);
+  
+  await updateDoc(docRef, updates);
 };

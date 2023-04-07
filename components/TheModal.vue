@@ -8,7 +8,12 @@
       </header>
       <section class="modal-card-body">
         <ClientOnly>
-          <pre class="has-background-white">{{ page }}</pre>
+          <h3 class="title is-5">Name</h3>
+          <h4 class="subtitle is-6">{{user?.name}}</h4>
+          <h3 class="title is-5">Email</h3>
+          <h4 class="subtitle is-6">{{user?.email}}</h4>
+          <h3 class="title is-5">Phone Number</h3>
+          <h4 class="subtitle is-6">{{user?.phone_number}}</h4>
         </ClientOnly>
       </section>
       <footer class="modal-card-foot">
@@ -24,7 +29,7 @@
 <script setup>
 const props = defineProps({
   isActive: Boolean,
-  page: {},
+  user: {},
   title: String
 });
 

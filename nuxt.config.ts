@@ -7,7 +7,7 @@ export default defineNuxtConfig({
     // "./modules/firebase-init/firebase-init-module",
     "./modules/firebase-firestore/firebase-firestore-module",
   ],
-  // ssr: false,
+  
   meta: {
     meta: [
       { name: "viewport", content: "width=device-width, initial-scale=1" },

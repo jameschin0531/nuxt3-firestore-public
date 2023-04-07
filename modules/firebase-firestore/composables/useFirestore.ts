@@ -23,6 +23,18 @@ export const addFirestoreData = async (col: string, doc: {}) => {
   }
 };
 
+export const updateFirestoreData = async (col: string, id: string, doc: {}) => {
+  try {
+    const { result } = await $fetch(endpoints.firestore.update(col,id), {
+      method: "POST",
+      body: doc,
+    });
+
+    return result;
+  } catch (error) {
+    console.log(error.message);
+  }
+};
 export const deleteFirestoreData = async (col: string, id: string) => {
   try {
     const { result } = await $fetch(endpoints.firestore.delete(col, id));

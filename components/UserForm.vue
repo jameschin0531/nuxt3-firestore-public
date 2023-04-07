@@ -2,7 +2,8 @@
   <div>
     <div class="section py-4">
       <form @submit.prevent="handleSubmit" id="form" class="card p-5">
-        <h2 class="subtitle is-3">Add User</h2>
+        <h2 v-if="formType === 'add'" class="subtitle is-3">Add User</h2>
+        <h2 v-else-if="formType === 'edit'" class="subtitle is-3">Edit User</h2>
         <div class="field">
           <label class="label">Email</label>
           <div class="control">
@@ -53,6 +54,7 @@
             <input
               class="input"
               placeholder="password"
+              type="password"
               v-model="formState.password"
             />
           </div>
@@ -68,6 +70,10 @@
 </template>
 
 <script setup>
+const props = defineProps({
+  initData: {},
+  formType: String,
+});
 const formState = ref({
   email: "",
   name: "",
@@ -76,11 +82,29 @@ const formState = ref({
   username: "",
 });
 
-const emits = defineEmits(["submitForm"])
+watchEffect(() => {
+  // set the formState once the initData is defined
+  if (props.initData && props.formType === "edit") {
+    Object.assign(formState.value, props.initData);
+  } else {
+    formState.value = {
+      email: "",
+      name: "",
+      password: "",
+      phone_number: "",
+      username: "",
+    };
+  }
+});
+
+const emits = defineEmits(["submitForm", "editForm"]);
 
 const handleSubmit = async () => {
-  emits("submitForm", formState.value)
+  if(props.formType === 'edit') {
+    emits("editForm", formState.value);
+  } else {
+    emits("submitForm", formState.value);
+  }
 };
 </script>
-
 <style></style>
