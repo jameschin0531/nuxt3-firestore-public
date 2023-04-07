@@ -7,7 +7,7 @@ export default defineNuxtConfig({
     // "./modules/firebase-init/firebase-init-module",
     "./modules/firebase-firestore/firebase-firestore-module",
   ],
-  
+
   meta: {
     meta: [
       { name: "viewport", content: "width=device-width, initial-scale=1" },
@@ -26,5 +26,11 @@ export default defineNuxtConfig({
   },
   alias: {
     "~/*": "./*",
+  },
+  publicRuntimeConfig: {
+    FIREBASE_API_KEY: process.env.FIREBASE_API_KEY,
+  },
+  privateRuntimeConfig: {
+    FIREBASE_API_KEY: process.env.FIREBASE_API_KEY,
   },
 });
