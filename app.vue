@@ -1,16 +1,10 @@
 <template>
   <div>
-    <NuxtPage />
-    <!-- <button class="button">click me</button> -->
+    <NuxtPage v-if="firebaseUser" />
+    <Login v-else />
   </div>
 </template>
 
 <script setup>
-// onMounted(async() => {
-//   const email = "jameschin@gmail.com";
-//   const password = "123456";
-//   const credentials = await signInUser(email, password);
-//   console.log(credentials);
-// });
-
+const firebaseUser = useFirebaseUser();
 </script>

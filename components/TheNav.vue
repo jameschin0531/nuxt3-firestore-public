@@ -25,20 +25,14 @@
       class="navbar-menu"
       :class="{ 'is-active': showMobileNav }"
     >
-      <div class="navbar-start">
-        <NuxtLink class="navbar-item" to="/about"> About </NuxtLink>
-        <NuxtLink class="navbar-item" to="/contact"> Contact </NuxtLink>
-        <NuxtLink class="navbar-item" to="/help"> Help </NuxtLink>
-        <NuxtLink class="navbar-item" to="/admin"> Admin </NuxtLink>
-        <NuxtLink class="navbar-item" to="/someweirdpage"> 404 </NuxtLink>
-      </div>
-      <div class="navbar-end">
-        <div class="navbar-item">
-          <div class="buttons">
-            <button class="button is-primary" @click="logout">
-              <strong>Logout</strong>
-            </button>
-          </div>
+      <NuxtLink class="navbar-item" to="/admin"> Admin </NuxtLink>
+    </div>
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          <button class="button is-primary" @click="logout">
+            <strong>Logout</strong>
+          </button>
         </div>
       </div>
     </div>
@@ -54,7 +48,8 @@ const toggleMobileNav = () => {
 };
 
 const logout = async () => {
-  await signOutUser();
+  const signOutResult = await signOutUser();
+  console.log(signOutResult);
   router.push("/login");
 };
 </script>

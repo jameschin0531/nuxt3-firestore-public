@@ -55,9 +55,9 @@ const router = useRouter();
 const handleSubmit = async () => {
 
   const credentials = await signInUser(email.value, password.value);
-
+  
   if (credentials) {
-    router.push("/admin");
+    router.push("/");
   } else {
     alert("Invalid credentials");
   }

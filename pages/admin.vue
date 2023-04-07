@@ -56,6 +56,7 @@ const handleSubmitEdit = async (formState) => {
     selectedUser.value.id,
     formState
   );
+  
   document.getElementById("form").reset();
   showTab.value = "list";
   await getFirestoreData("user");
