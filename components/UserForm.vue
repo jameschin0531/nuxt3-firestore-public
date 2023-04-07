@@ -4,17 +4,7 @@
       <form @submit.prevent="handleSubmit" id="form" class="card p-5">
         <h2 v-if="formType === 'add'" class="subtitle is-3">Add User</h2>
         <h2 v-else-if="formType === 'edit'" class="subtitle is-3">Edit User</h2>
-        <div class="field">
-          <label class="label">Email</label>
-          <div class="control">
-            <input
-              class="input"
-              type="text"
-              placeholder="Email"
-              v-model="formState.email"
-            />
-          </div>
-        </div>
+      
 
         <div class="field">
           <label class="label">Name</label>
@@ -33,18 +23,21 @@
           <div class="control">
             <input
               class="input"
-              placeholder="Phone Number"
+              type="tel"
+               pattern="[0-9]{3}-[0-9]{7}"
+              placeholder="Format (123-1234567)"
               v-model="formState.phone_number"
             />
           </div>
         </div>
-        <div class="field">
-          <label class="label">Username</label>
+          <div class="field">
+          <label class="label">Email</label>
           <div class="control">
             <input
               class="input"
-              placeholder="Username"
-              v-model="formState.username"
+              type="email"
+              placeholder="e.g. bobsmith@gmail.com"
+              v-model="formState.email"
             />
           </div>
         </div>
@@ -53,8 +46,10 @@
           <div class="control">
             <input
               class="input"
-              placeholder="password"
+              placeholder="*******"
               type="password"
+              minlength="8"
+              required
               v-model="formState.password"
             />
           </div>
@@ -92,7 +87,7 @@ watchEffect(() => {
       name: "",
       password: "",
       phone_number: "",
-      username: "",
+      // username: "",
     };
   }
 });

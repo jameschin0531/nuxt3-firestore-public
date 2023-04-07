@@ -2,7 +2,7 @@
   <table class="table is-bordered is-narrow is-hoverable is-fullwidth">
     <thead>
       <tr>
-        <th><abbr title="Username">Username</abbr></th>
+        <!-- <th><abbr title="Username">Username</abbr></th> -->
         <th><abbr title="Name">Name</abbr></th>
         <th><abbr title="Email">Email</abbr></th>
         <th><abbr title="Password">Password</abbr></th>
@@ -11,7 +11,7 @@
     </thead>
     <tbody>
       <tr v-for="user in users" :key="user.id">
-        <td>{{ user.username }}</td>
+        <!-- <td>{{ user.username }}</td> -->
         <td>{{ user.name }}</td>
         <td>{{ user.email }}</td>
         <td>{{ user.password }}</td>

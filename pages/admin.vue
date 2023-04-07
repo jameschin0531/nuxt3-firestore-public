@@ -45,9 +45,21 @@ const initData = computed(() => {
 });
 
 const handleSubmit = async (formState) => {
-  const result = await addFirestoreData("user", formState);
-  document.getElementById("form").reset();
-  await getFirestoreData("user");
+  const payload = {
+    email: formState.email,
+    password: formState.password,
+  };
+  const createUserResponse = await createUser(payload.email, payload.password);
+  console.log(createUserResponse);
+  if (createUserResponse.type === "error") {
+    alert(createUserResponse.message);
+  } else {
+    const result = await addFirestoreData("user", formState);
+
+    document.getElementById("form").reset();
+    await getFirestoreData("user");
+    showTab.value = "list";
+  }
 };
 
 const handleSubmitEdit = async (formState) => {
@@ -56,7 +68,7 @@ const handleSubmitEdit = async (formState) => {
     selectedUser.value.id,
     formState
   );
-  
+
   document.getElementById("form").reset();
   showTab.value = "list";
   await getFirestoreData("user");
