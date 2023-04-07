@@ -50,7 +50,6 @@ const handleSubmit = async (formState) => {
     password: formState.password,
   };
   const createUserResponse = await createUser(payload.email, payload.password);
-  console.log(createUserResponse);
   if (createUserResponse.type === "error") {
     alert(createUserResponse.message);
   } else {
